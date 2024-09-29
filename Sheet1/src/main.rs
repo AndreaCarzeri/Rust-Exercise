@@ -60,6 +60,8 @@ fn main() {
     let stringa = String::from("Stringa di Base");
     let new_string = append(stringa.clone());
     println!("Stringa iniziale: {} e Stringa finale: {}", stringa, new_string);
+
+    //ES9
 }
 
 fn append(stringa: String) -> String {
