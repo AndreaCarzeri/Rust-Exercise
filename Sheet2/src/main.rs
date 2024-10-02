@@ -18,32 +18,65 @@ fn main() {
     println!("Valore restituito: {:?}", split_at_value(&array, 9));
 
     //ES4
-    let vec1 = vec![1,2,3,4,5,6];
-    let vec2 = vec![2,7];
-    sub_slice(&vec1,&vec2);
+    let mut vec1 = vec![1, 2, 3, 4, 5, 6];
+    let vec2 = vec![2, 7];
+    sub_slice(&vec1, &vec2);
 
     //ES5
+    println!("Max del vett: {:?} è: {}", vec1, max(&vec1));
+    println!("Il vettore è ordinato in modo crescente? {}", is_sorted(&vec1));
+    swap(&mut vec1);
+    println!("Swappo primo ed ultimo {:?}", vec1);
+}
 
+fn is_sorted(vec: &Vec<i32>) -> bool {
+    let mut sorted = true;
+    let mut prec = vec[0];
+    for i in vec { //salto il primo
+        if *i < prec{
+            return false
+        }else{
+            prec=*i;
+        }
+    }
+    sorted
+}
+
+fn max(vec: &Vec<i32>) -> i32 {
+    let mut max = vec[0];
+    for n in vec {
+        if *n > max {
+            max = *n;
+        }
+    }
+    max
+}
+
+fn swap(vec: &mut Vec<i32>) {
+    let t = vec[0];
+    let last_index = vec.len() - 1;
+    vec[0] = vec[last_index];
+    vec[last_index] = t;
 }
 
 fn sub_slice(vec1: &Vec<i32>, vec2: &Vec<i32>) {
     let mut index2 = 0;
-    let mut start_print =0;
-    let mut contatore =0;
-    let mut end_print=0;
+    let mut start_print = 0;
+    let mut contatore = 0;
+    let mut end_print = 0;
     for element in vec1.iter() {
-        contatore+=1;
+        contatore += 1;
         if index2 < vec2.len() && *element == vec2[index2] {
-            index2+=1;
+            index2 += 1;
             if start_print == 0 {
-                start_print=index2;
+                start_print = index2;
             }
-            end_print=contatore;
+            end_print = contatore;
         }
     }
     if index2 == vec2.len() {
         println!("{:?}", &vec1[start_print..end_print]);
-    }else {
+    } else {
         println!("Not found");
     }
 }
