@@ -51,9 +51,9 @@ fn main() {
     // Mostra un messaggio all'utente
     println!("Inserisci il nome della forniture:");
     // Leggi l'input da tastiera e salva nella variabile `input`
-    io::stdin()
+    /*io::stdin()
         .read_line(&mut input) // read_line salva l'input nella variabile
-        .expect("Errore nella lettura dell'input");
+        .expect("Errore nella lettura dell'input");*/
     //println!("il prezzo della forniture inserita e': {}", get_forniture_price(&forniture, &input));
 
     //ES8
@@ -62,6 +62,29 @@ fn main() {
     println!("Stringa iniziale: {} e Stringa finale: {}", stringa, new_string);
 
     //ES9
+    let number = 152;
+    println!("Il numero {} è armstrong? {}", number, is_armstrong_number(number));
+
+    //ES10
+    let matrix: ((i32,i32), (i32,i32)) = ((3,4), (5,7));
+    println!("Matrice transposta: {:?}", transpose_matrix(matrix));
+}
+
+fn transpose_matrix(matrix: ((i32, i32), (i32, i32))) -> ((i32, i32), (i32, i32)) {
+    // Restituisce una nuova matrice trasposta
+    ((matrix.0 .0, matrix.1 .0), (matrix.0 .1, matrix.1 .1))
+}
+
+
+fn is_armstrong_number(mut numero: i32) -> bool {
+    let init_number = numero;
+    let mut somma = 0;
+    let contatore = numero.to_string().len() as u32;
+    while numero > 0 {
+        somma += (numero % 10).pow(contatore);
+        numero /= 10;
+    }
+    init_number == somma
 }
 
 fn append(stringa: String) -> String {
