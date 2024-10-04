@@ -1,5 +1,27 @@
 use std::collections::HashMap;
 use std::ops::Index;
+use crate::Expression::Number;
+
+enum I32String {
+    Int(i32),
+    Text(String),
+}
+
+enum Operation {
+    Add,
+    Sub,
+    Mul,
+    Div,
+}
+
+enum Expression {
+    Number(i32),
+    Operation {
+        left: Box<Expression>,
+        operation: Operation,
+        right: Box<Expression>,
+    },
+}
 
 fn main() {
     //ES1
@@ -27,22 +49,165 @@ fn main() {
     println!("Il vettore è ordinato in modo crescente? {}", is_sorted(&vec1));
     swap(&mut vec1);
     println!("Swappo primo ed ultimo {:?}", vec1);
+    let mut vec_str = vec![String::from("Ciao"), String::from("sono"), String::from("luca")];
+    insert_if_longer(&mut vec_str, String::from("giuratoooooo"));
+    println!("Nuovo vec:  {:?}", vec_str);
+
+    //ES6
+    println!("Build_Vector: {:?}", build_vector(vec1.iter()));
+
+    //ES7
+    let mut vec_pancake = vec![3, 3, 3, 2, 2, 1, 2, 2, 3, 5, 7, 8, ];
+    println!("Prima pancake {:?}", vec_pancake);
+    pancake_sort(&mut vec_pancake);
+    println!("Dopo pancake {:?}", vec_pancake);
+
+    //ES8
+    let v1 = [1, 3, 5, 6, 9];
+    let v2 = [2, 3, 4, 7, 8, 15, 34];
+    println!("Merged: {:?}", merge(&v1, &v2));
+
+    //ES9
+    let mut vector_mixed: Vec<I32String> = Vec::new();
+    vector_mixed.push(I32String::Int(50));
+    vector_mixed.push(I32String::Text(String::from("ciao")));
+
+    //ES10
+    let expression1: Expression = Expression::Operation { left: Box::new(Number(10)), operation: Operation::Add, right: Box::new(Number(10)) };
+    let expression2: Expression = Expression::Operation { left: Box::new(Number(3)), operation: Operation::Mul, right: Box::new(Number(10)) };
+    let expression3: Expression = Expression::Operation { left: Box::new(expression2), operation: Operation::Sub, right: Box::new(expression1) }; //30 - 20
+    println!("Il risultato dell'operazione e': {:?}", evaluete_expression(&expression3));
+}
+
+fn evaluete_expression(expression: &Expression) -> Result<i32, &str> {
+    let mut result: Result<i32, &str> = Ok(0);
+    match expression {
+        Number(i) => result = Ok(*i),
+        Expression::Operation { left, operation, right } => {
+            let value_left = evaluete_expression(left)?;
+            let value_right = evaluete_expression(right)?;
+            match operation {
+                Operation::Add => {
+                    let ris_checked = value_left.checked_add(value_right); //ritorna option da controllare se è andato tutto a buon fine
+                    match ris_checked {
+                        None => result = Err("overflow"),
+                        Some(v) => result = Ok(v)
+                    }
+                }
+                Operation::Sub => {
+                    let ris_checked = value_left.checked_sub(value_right); //ritorna option da controllare se è andato tutto a buon fine
+                    match ris_checked {
+                        None => result = Err("overflow"),
+                        Some(v) => result = Ok(v)
+                    }
+                }
+                Operation::Mul => {
+                    let ris_checked = value_left.checked_mul(value_right); //ritorna option da controllare se è andato tutto a buon fine
+                    match ris_checked {
+                        None => result = Err("overflow"),
+                        Some(v) => result = Ok(v)
+                    }
+                }
+                Operation::Div => {
+                    let ris_checked = value_left.checked_div(value_right); //ritorna option da controllare se è andato tutto a buon fine
+                    match ris_checked {
+                        None => result = Err("division by zero"),
+                        Some(v) => result = Ok(v)
+                    }
+                }
+            }
+        }
+    }
+    result
+}
+
+fn merge(v1: &[i32], v2: &[i32]) -> Vec<i32> {
+    let mut vec = Vec::from(v1);
+    let mut index2 = 0;
+    let mut max_index = vec.len();
+    let mut i = 0;
+
+    while i < max_index {
+        println!("Confronto {} con {}", vec[i], v2[index2]);
+        if vec[i] >= v2[index2] {
+            vec.insert(i, v2[index2]);
+            index2 += 1;
+            max_index += 1;
+        }
+        if index2 == v2.len() {
+            break;
+        }
+        i += 1;
+    }
+    //aggiungere i rimanenti
+    for i in index2..v2.len() {
+        vec.push(v2[i]);
+    }
+    vec
+}
+
+fn flip_pancake(vec: &mut Vec<i32>, mut k: usize) {
+    let mut left: usize = 0;
+    while left < k {
+        let t = vec[left];
+        vec[left] = vec[k];
+        vec[k] = t;
+        k -= 1;
+        left += 1;
+    }
+}
+
+fn max_index_pancake(vec: &mut Vec<i32>, mut k: usize) -> usize {
+    let mut index: usize = 0;
+    for i in 0..k {
+        if vec[i] > vec[index] {
+            index = i;
+        }
+    }
+    index
+}
+fn pancake_sort(vec: &mut Vec<i32>) {
+    let mut n = vec.len();
+    while n > 1 {
+        let maxidx = max_index_pancake(vec, n);
+        if maxidx != n - 1 {
+            if maxidx != 0 {
+                flip_pancake(vec, maxidx);
+            }
+            flip_pancake(vec, n - 1);
+        }
+        n -= 1;
+    }
+}
+
+fn build_vector(iter: std::slice::Iter<i32>) -> Vec<&i32> {
+    let mut vec = Vec::new();
+    for num in iter {
+        vec.push(num)
+    }
+    vec
+}
+
+fn insert_if_longer(vec: &mut Vec<String>, str: String) {
+    if str.len() > 10 {
+        vec.push(str)
+    }
 }
 
 fn is_sorted(vec: &Vec<i32>) -> bool {
     let mut sorted = true;
     let mut prec = vec[0];
     for i in vec { //salto il primo
-        if *i < prec{
-            return false
-        }else{
-            prec=*i;
+        if *i < prec {
+            return false;
+        } else {
+            prec = *i;
         }
     }
     sorted
 }
 
-fn max(vec: &Vec<i32>) -> i32 {
+fn max(vec: &[i32]) -> i32 {
     let mut max = vec[0];
     for n in vec {
         if *n > max {
