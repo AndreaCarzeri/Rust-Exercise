@@ -2,12 +2,16 @@ mod bup;
 mod Point;
 mod Line;
 mod Test;
+mod sentence;
+mod test_senteces;
 
 use std::collections::HashMap;
 use std::fmt;
 use std::fmt::{write, Formatter};
 use crate::Item::{Chips, Coffee, Coke};
+use crate::sentence::Sentence;
 use crate::Test::test;
+use crate::test_senteces::magic_sentence;
 
 #[derive(Hash, Eq, PartialEq, Debug, Clone)]
 enum Item {
@@ -159,6 +163,15 @@ fn main() {
 
     //ES 7
     test();
+
+    //ES 8
+    let mut hm: HashMap<i32, Sentence>= HashMap::new();
+    hm.insert(0,Sentence::new("Hello my name was cool yesterday"));
+    hm.insert(1,Sentence::new("Hi my name is cool"));
+    match magic_sentence(&hm,0,1){
+        Ok(v) => println!("Sentence: {:?}", v.words),
+        Err(e) => println!("{}",e)
+    };
 }
 
 fn recognise_owner(hm: &HashMap<&str, &str>, plate: &str) -> Option<String> {
