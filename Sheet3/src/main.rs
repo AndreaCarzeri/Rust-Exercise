@@ -1,3 +1,5 @@
+mod bup;
+
 use std::collections::HashMap;
 use std::fmt;
 use std::fmt::{write, Formatter};
@@ -145,6 +147,11 @@ fn main() {
     //ES5
 
     //ES6
+    let mut bup = bup::Bup::new();
+    bup.add_book("Il bologna", "123123123", 2024, "Gianni Morandi", "Bologna Calcio");
+    bup.add_article("Zirkzee", "333222212", 2023, "39231aaa");
+    bup.add_magazine("Piccolo Bologna", "2178yuidsj7", 2023, 4, 6);
+    println!("Bup:\n{}",bup);
 }
 
 fn recognise_owner(hm: &HashMap<&str, &str>, plate: &str) -> Option<String> {
