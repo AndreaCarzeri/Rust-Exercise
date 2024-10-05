@@ -1,9 +1,13 @@
 mod bup;
+mod Point;
+mod Line;
+mod Test;
 
 use std::collections::HashMap;
 use std::fmt;
 use std::fmt::{write, Formatter};
 use crate::Item::{Chips, Coffee, Coke};
+use crate::Test::test;
 
 #[derive(Hash, Eq, PartialEq, Debug, Clone)]
 enum Item {
@@ -152,6 +156,9 @@ fn main() {
     bup.add_article("Zirkzee", "333222212", 2023, "39231aaa");
     bup.add_magazine("Piccolo Bologna", "2178yuidsj7", 2023, 4, 6);
     println!("Bup:\n{}",bup);
+
+    //ES 7
+    test();
 }
 
 fn recognise_owner(hm: &HashMap<&str, &str>, plate: &str) -> Option<String> {
