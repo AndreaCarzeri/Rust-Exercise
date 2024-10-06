@@ -1,4 +1,11 @@
-use crate::modsum::sum;
+/*fn main() {
+    let mut v: Vec<f32> = vec![1.0, 2.5, 3.7];
+    for i in v.iter_mut(){
+     *i=i.powf(2.0);
+    }
+}*/
+
+/*use crate::modsum::sum;
 
 mod modsum {
     use crate::{modx, mody};
@@ -36,7 +43,7 @@ mod mody {
 pub fn main() {
     println!("{}", sum(modx::X::S(' '), mody::X::F(1.2, 4)));
     println!("{}", sum(modx::X::C("hello".to_owned()), mody::X::F(2.4, 10)));
-}
+}*/
 
 /*fn order(vec: Vec<String>) -> Vec<String> {
     let mut v: Vec<String> = Vec::new();
@@ -219,7 +226,7 @@ pub fn main(){
 }*/
 
 
-/*use std::cmp::PartialEq;
+use std::cmp::PartialEq;
 use crate::AirplaneCompany::Boeing;
 
 pub fn main() {
@@ -272,6 +279,18 @@ impl AirFleet {
         self.fleet.retain(|a| a.company != Boeing);
     }
 
+    fn remove_airplane(&mut self, model: &str) -> Result<(), String> {
+        // Ciclo for per trovare l'indice dell'aereo da rimuovere
+        for (i, a) in self.fleet.iter().enumerate() {
+            if a.model == model {
+                // Usa remove per rimuovere l'aereo all'indice trovato
+                self.fleet.remove(i);
+                return Ok(());
+            }
+        }
+        Err("Airplane not found in fleet".to_string())
+    }
+
     fn add_airplane(&mut self, a: Airplane){
         self.fleet.push(a);
     }
@@ -284,7 +303,7 @@ impl AirFleet {
         }
         Err("Not in this fleet".to_string())
     }
-}*/
+}
 
 
 
