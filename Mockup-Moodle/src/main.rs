@@ -1,4 +1,225 @@
-use std::cmp::PartialEq;
+use crate::modsum::sum;
+
+mod modsum {
+    use crate::{modx, mody};
+
+    pub fn sum(x1: modx::X, x2: mody::X) -> f64 {
+        let mut ret = 0.0;
+        match x1 {
+            modx::X::S(v) => ret += (v as i64) as f64,
+            modx::X::C(v) => ret += v.len() as f64,
+            _ => {}
+        }
+
+        match x2 {
+            mody::X::F(a, b) => ret += a * b as f64,
+            _ => {}
+        }
+        ret
+    }
+}
+mod modx {
+    pub enum X {
+        S(char),
+        C(String),
+        F(f64, usize),
+    }
+}
+
+mod mody {
+    pub enum X {
+        S(char),
+        C(String),
+        F(f64, usize),
+    }
+}
+pub fn main() {
+    println!("{}", sum(modx::X::S(' '), mody::X::F(1.2, 4)));
+    println!("{}", sum(modx::X::C("hello".to_owned()), mody::X::F(2.4, 10)));
+}
+
+/*fn order(vec: Vec<String>) -> Vec<String> {
+    let mut v: Vec<String> = Vec::new();
+    let mut cont = 0;
+    while cont < vec.len() {
+        v.push(cont.to_string()+" - "+vec.get(cont).unwrap());
+        cont+=1;
+    }
+    v
+}
+pub fn main() {
+    let a: Vec<String> = vec!["Ciao".to_string(), "Come".to_string(), "Va".to_string()];
+
+    let b = order(a);
+    println!("{}", b.get(1).unwrap().to_owned());
+    println!("{}", b.get(2).unwrap().to_owned());
+}*/
+
+
+
+/*fn res1(x: i32) -> Result<i32, String>{
+    if x%10==0 {
+        Ok(10)
+    }else{
+        Err("error".to_string())
+    }
+}
+
+fn res2(r: Result<i32, String>) -> Result<i32, String>{
+    if r.is_ok() {
+        Ok(5)
+    }else{
+        Err("error".to_string())
+    }
+}
+
+fn wrapper(x: i32) -> Result<i32, String>{
+    let r1 = res1(x);
+    let r2= res2(r1);
+    if r2.is_ok(){
+        Ok(x)
+    }else {
+        Err("error".to_string())
+    }
+}
+
+pub fn main() {
+    println!("{:?}", wrapper(10));
+    println!("{:?}", wrapper(5));
+    println!("{:?}", wrapper(11));
+}*/
+
+/*struct MaybePoint{
+    x: Option<i32>,
+    y: Option<i32>
+}
+
+impl MaybePoint {
+    fn new(x: Option<i32>, y: Option<i32>) -> Self{
+        Self{x,y}
+    }
+
+    fn is_some(&self) -> bool{
+        self.x.is_some() && self.y.is_some()
+    }
+
+    fn maybe_len(&self) -> Option<f32>{
+        if !self.is_some(){
+            None
+        }else {
+            Some(((self.x?.pow(2)+self.y?.pow(2)) as f32).sqrt())
+        }
+    }
+}
+pub fn main(){
+    let x = MaybePoint::new(Some(10),Some(20));
+    let y = MaybePoint{x:Some(10),y:None};
+
+    println!("{:?}", x.is_some());
+    println!("{:?}", y.is_some());
+    println!("{:?}", x.maybe_len());
+    println!("{:?}", y.maybe_len());
+}*/
+
+
+/*struct Size {
+    height: f32,
+    width: f32,
+}
+
+impl Size {
+    fn new(height: f32, width: f32) -> Self {
+        Self { height, width }
+    }
+
+    fn area(&self) -> f32 {
+        self.height * self.width
+    }
+
+    fn compare(&self, size: &Size) -> Option<bool> {
+        let a1 = self.area();
+        let a2 = size.area();
+
+        if a1 == a2 {
+            None
+        } else if a1 > a2 {
+            Some(true)
+        } else {
+            Some(false)
+        }
+    }
+}
+
+pub fn main() {
+    use std::fmt::{Debug, Formatter};
+
+    impl Debug for Size {
+        fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+            write!(f, "Size {{ width: {}, height: {} }}", self.width, self.height)
+        }
+    }
+
+    let s = Size::new(5.7, 1.2);
+
+    println!("{:?}", s.area());
+    println!("{:?}", s.compare(&Size::new(8.9, 10.)));
+    println!("{:?}", s.compare(&Size::new(1.8, 0.1)));
+    println!("{:?}", s.compare(&Size::new(5.7, 1.2)));
+}*/
+
+
+/*use std::collections::HashMap;
+use crate::hashmaps::Maps;
+use crate::other::string_to_tuple;
+
+mod unumber{
+    pub type Unumber=usize;
+}
+
+mod hashmaps{
+    use std::collections::HashMap;
+    use crate::unumber::Unumber;
+
+    pub struct Maps {
+        pub map : HashMap<Unumber, String>
+    }
+
+}
+
+mod other{
+    use std::collections::HashMap;
+    use crate::hashmaps::Maps;
+    use crate::unumber::Unumber;
+
+    pub fn string_to_tuple(maps: Maps) -> HashMap<Unumber, (Unumber, String)> {
+        let mut hm: HashMap<Unumber, (Unumber, String)> = HashMap::new();
+        for m in maps.map {
+            hm.insert(m.0,(m.1.len(),m.1));
+        }
+        hm
+    }
+}
+
+
+
+pub fn main(){
+    let mut hashmap = HashMap::new();
+    hashmap.insert(1, "ciao".to_string());
+    hashmap.insert(2, "ciao".to_string());
+    hashmap.insert(3, "ciao".to_string());
+
+    let hashmap = Maps{
+        map: hashmap,
+    };
+
+    let hashmap = string_to_tuple(hashmap);
+
+    println!("{:?}", (hashmap.get(&1).unwrap().0, hashmap.get(&1).unwrap().1.clone()));
+
+}*/
+
+
+/*use std::cmp::PartialEq;
 use crate::AirplaneCompany::Boeing;
 
 pub fn main() {
@@ -31,7 +252,7 @@ pub fn main() {
     println!("{:?}", fleet.search_airplane("A330"));
 }
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 enum AirplaneCompany {
     Boeing,
     Airbus,
@@ -48,13 +269,7 @@ struct AirFleet {
 
 impl AirFleet {
     fn remove_boeing(&mut self) {
-        let mut new_list: Vec<Airplane> = Vec::new();
-        for a in &self.fleet {
-            if a.company != Boeing {
-                new_list.push(a.);
-            }
-        }
-        self.fleet = new_list;
+        self.fleet.retain(|a| a.company != Boeing);
     }
 
     fn add_airplane(&mut self, a: Airplane){
@@ -62,14 +277,14 @@ impl AirFleet {
     }
 
     fn search_airplane(&mut self, model: &str) -> Result<AirplaneCompany,String>{
-        for a in self.fleet {
+        for a in &self.fleet {
             if a.model==model {
-                return Ok(a.company);
+                return Ok(a.company.clone());
             }
         }
         Err("Not in this fleet".to_string())
     }
-}
+}*/
 
 
 
