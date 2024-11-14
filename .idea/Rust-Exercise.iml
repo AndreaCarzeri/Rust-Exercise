@@ -5,9 +5,11 @@
       <sourceFolder url="file://$MODULE_DIR$/Sheet2/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Sheet3/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Mockup-Moodle/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Sheet4/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Sheet2/target" />
       <excludeFolder url="file://$MODULE_DIR$/Sheet3/target" />
       <excludeFolder url="file://$MODULE_DIR$/Mockup-Moodle/target" />
+      <excludeFolder url="file://$MODULE_DIR$/Sheet4/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
