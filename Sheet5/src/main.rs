@@ -3,12 +3,123 @@ use std::fmt::{Debug, Display};
 use std::path::Iter;
 use rand::{Rng, RngCore};
 use std::ops::{Add, Sub, Mul};
+use crate::CarrotState::{Burnt, Cooked, Fried, Raw};
 
 fn main() {
     let mut library = Library::default();
     library.populate();
     println!("{:?}", library.bookcases);
 }
+
+//ES7
+trait Heatable {
+    fn cook(&mut self);
+}
+
+trait Friable {
+    fn cook(&mut self);
+}
+
+trait Heater {
+    fn heat(&self, heatable: &mut dyn Heatable);
+}
+
+trait Frier {
+    fn fry(&self, friable: &mut dyn Friable);
+}
+
+struct Oven {}
+struct Pan {}
+
+impl Heater for Oven {
+    fn heat(&self, heatable: &mut dyn Heatable) {
+        heatable.cook()
+    }
+}
+
+impl Heater for Pan {
+    fn heat(&self, heatable: &mut dyn Heatable) {
+        heatable.cook()
+    }
+}
+
+impl Frier for Pan {
+    fn fry(&self, friable: &mut dyn Friable) {
+        friable.cook()
+    }
+}
+
+struct Pie {
+    ready: bool,
+}
+
+struct Carrot {
+    carrot_state: CarrotState,
+}
+
+#[derive(Eq, PartialEq)]
+enum CarrotState {
+    Raw,
+    Cooked,
+    Fried,
+    Burnt,
+}
+
+trait Edible {
+    fn eat(&self);
+}
+
+impl Heatable for Pie {
+    fn cook(&mut self) {
+        if self.ready {
+            println!("you burned the pie");
+        } else {
+            self.ready = !self.ready
+        }
+    }
+}
+
+impl Heatable for Carrot {
+    fn cook(&mut self) {
+        if self.carrot_state != Raw {
+            self.carrot_state = Burnt
+        } else {
+            self.carrot_state = Cooked
+        }
+    }
+}
+
+impl Friable for Carrot {
+    fn cook(&mut self) {
+        if self.carrot_state == Fried {
+            self.carrot_state = Burnt
+        } else {
+            self.carrot_state = Fried
+        }
+    }
+}
+
+impl Edible for Pie{
+    fn eat(&self) {
+        if !self.ready {
+            println!("you got stomach ache")
+        }else{
+            println!("yummy")
+        }
+    }
+}
+
+impl Edible for Carrot {
+    fn eat(&self) {
+        match self.carrot_state {
+            Raw => {println!("mmh, crunchy")}
+            Cooked => {println!("mmh, yummy")}
+            Fried => {println!("mmh, crispy")}
+            Burnt => {println!("mmh, burnt")}
+        }
+    }
+}
+
 
 //ES6
 #[derive(Debug)]
@@ -49,8 +160,8 @@ impl Gate<Stopped> {
 }
 
 impl Gate<Closed> {
-    fn new() -> Gate<Closed>{
-        Gate{_state: Closed}
+    fn new() -> Gate<Closed> {
+        Gate { _state: Closed }
     }
     fn open(self) -> Result<Gate<Open>, Gate<Stopped>> {
         let r = rand::thread_rng().gen_range(0..20);
@@ -65,7 +176,7 @@ impl Gate<Closed> {
 //ES5
 struct Pair(i32, String);
 
-impl Add<i32> for Pair(i32, String) {
+impl Add<i32> for Pair {
     type Output = Self;
 
     fn add(self, rhs: i32) -> Self::Output {
@@ -73,7 +184,7 @@ impl Add<i32> for Pair(i32, String) {
     }
 }
 
-impl Sub<i32> for Pair(i32, String) {
+impl Sub<i32> for Pair {
     type Output = Self;
 
     fn sub(self, rhs: i32) -> Self::Output {
@@ -81,7 +192,7 @@ impl Sub<i32> for Pair(i32, String) {
     }
 }
 
-impl Add<&str> for Pair(i32, String) {
+impl Add<&str> for Pair {
     type Output = Self;
 
     fn add(self, rhs: &str) -> Self::Output {
@@ -89,7 +200,7 @@ impl Add<&str> for Pair(i32, String) {
     }
 }
 
-impl Sub<&str> for Pair(i32, String) {
+impl Sub<&str> for Pair {
     type Output = Self;
 
     fn sub(self, rhs: &str) -> Self::Output {
@@ -97,10 +208,10 @@ impl Sub<&str> for Pair(i32, String) {
     }
 }
 
-impl Add<Pair(i32, String)> for Pair(i32, String) {
+impl Add<Pair> for Pair {
     type Output = Self;
 
-    fn add(self, rhs: Pair(i32, String)) -> Self::Output {
+    fn add(self, rhs: Pair) -> Self::Output {
         self + rhs.0 + rhs.1.as_str()
     }
 }
@@ -152,7 +263,7 @@ where
 {
     let minor = if t1 < t2 { t1 } else { t2 };
     println!("minor: {:?}", minor);
-    println!("u: {:?}", u);
+    println!("u: {:}", u);
     minor
 }
 
