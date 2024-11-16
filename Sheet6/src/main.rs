@@ -1,5 +1,6 @@
 use std::cell::RefCell;
 use std::fmt::Debug;
+use std::marker::PhantomData;
 use std::ops::Deref;
 use std::rc::Rc;
 
@@ -25,6 +26,185 @@ fn main() {
     user.print_car();
     CarDealer::end_rental(&mut user);
     user.print_car();
+}
+
+//ES6
+
+#[test]
+fn test_bits() {
+    let mut b1 = EntangledBit::default();
+    let mut b2 = EntangledBit::default();
+    assert_eq!(b2.get(), false);
+    b1.entangle_with(&mut b2);
+    b1.set();
+    assert_eq!(b2.get(), true);
+}
+
+struct EntangledBit {
+    bit: Rc<RefCell<bool>>,
+}
+
+impl Default for EntangledBit {
+    fn default() -> Self {
+        Self {
+            bit: Rc::new(RefCell::new(false))
+        }
+    }
+}
+
+impl EntangledBit {
+    pub fn get(&self) -> bool {
+        *self.bit.borrow()
+    }
+    pub fn set(&mut self) {
+        *self.bit.borrow_mut() = true;
+    }
+    pub fn reset(&mut self) {
+        *self.bit.borrow_mut() = false;
+    }
+    pub fn entangle_with(&self, other: &mut Self) {
+        other.bit = self.bit.clone();
+    }
+}
+
+
+//ES5
+trait CompileTimeNode {
+    type LeftType;
+    type RightType;
+    fn is_none() -> bool;
+}
+struct NullNode {}
+struct Node<L, R> {
+    left: PhantomData<L>,
+    right: PhantomData<R>,
+}
+
+impl<L: CompileTimeNode, R: CompileTimeNode> CompileTimeNode for Node<L, R> {
+    type LeftType = L;
+    type RightType = R;
+
+    fn is_none() -> bool {
+        false
+    }
+}
+
+impl CompileTimeNode for NullNode {
+    type LeftType = Self;
+    type RightType = Self;
+
+    fn is_none() -> bool {
+        true
+    }
+}
+
+fn count_nodes<T: CompileTimeNode>() -> usize
+where
+    T::LeftType: CompileTimeNode,
+    T::RightType: CompileTimeNode,
+{
+    let mut count = 0;
+    /*
+    if !T::is_none() {
+        count = 1;
+        count += count_nodes::<T::LeftType>();
+        count += count_nodes::<T::RightType>();
+    }*/
+    count
+}
+
+#[test]
+fn test() {
+    let len = count_nodes::<
+        Node<
+            Node<
+                Node<
+                    NullNode,
+                    NullNode,
+                >,
+                NullNode
+            >,
+            Node<
+                Node<
+                    Node<
+                        Node<
+                            NullNode,
+                            NullNode
+                        >,
+                        NullNode
+                    >,
+                    Node<
+                        NullNode,
+                        NullNode
+                    >
+                >,
+                NullNode
+            >
+        >
+    >();
+    assert_eq!(len, 0)
+}
+
+
+//ES4
+#[derive(Copy, Clone, Debug)]
+struct PublicStreetlight<'a> {
+    id: &'a str,
+    on: bool,
+    burn_out: bool,
+}
+
+struct PublicIllumination<'a> {
+    lights: Vec<PublicStreetlight<'a>>,
+}
+
+impl<'a> PublicStreetlight<'a> {
+    fn new(id: &'a str, on: bool, burn_out: bool) -> Self {
+        Self { id, on, burn_out }
+    }
+    fn default() -> Self {
+        Self { id: "", on: false, burn_out: false }
+    }
+}
+
+impl<'a> PublicIllumination<'a> {
+    fn new(lights: Vec<PublicStreetlight<'a>>) -> Self {
+        Self { lights }
+    }
+
+    fn default() -> Self {
+        Self { lights: Vec::new() }
+    }
+}
+
+impl<'a> Iterator for PublicIllumination<'a> {
+    type Item = PublicStreetlight<'a>;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let a = self.lights.iter().enumerate().find(|&x| { x.1.burn_out == true });
+        match a {
+            None => { None }
+            Some((i, &t)) => {
+                self.lights.remove(i);
+                Some(t)
+            }
+        }
+    }
+}
+
+#[test]
+fn test_1() {
+    //create new streetlights
+    let streetlight = PublicStreetlight::new("1", true, true);
+    let streetlight2 = PublicStreetlight::new("2", true, false);
+    let streetlight3 = PublicStreetlight::new("3", true, false);
+    let streetlight4 = PublicStreetlight::new("4", false, true);
+    let publicIllumination =
+        PublicIllumination::new(vec![streetlight, streetlight2, streetlight3,
+                                     streetlight4]);
+    for a in publicIllumination {
+        println!("{:?}", a);
+    }
 }
 
 //ES3
