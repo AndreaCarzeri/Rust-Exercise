@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="CargoProjects">
+    <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9a953a9f-a73d-48ad-a865-a13a6e8853ac" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../Mockup-Moodle/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/.rustc_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Mockup-Moodle/target/.rustc_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/.fingerprint/Mockup-Moodle-76f42a9bdb4c3bb1/output-bin-Mockup-Moodle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/Mockup-Moodle.d" beforeDir="false" afterPath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/Mockup-Moodle.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/Mockup-Moodle.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/Mockup-Moodle.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/Mockup_Moodle.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/Mockup_Moodle.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/deps/Mockup_Moodle.d" beforeDir="false" afterPath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/deps/Mockup_Moodle.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/deps/Mockup_Moodle.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/deps/Mockup_Moodle.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/deps/Mockup_Moodle.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/deps/Mockup_Moodle.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/0a02rbz3xq9aolnahhoww8ci1.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/0jb86i1x3cugsoqy6zh84vld9.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/116hwiay0rb6rsagodd63snpm.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/1oz0km79tkqqq2qx6roz0vi9b.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/1xg3jzszidgwk93msji292ch8.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/2cz6y80gwx8qgmalvin6p61pr.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/3pe417jard8ft7pulzdngilaj.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/3pu2row2y97swhhh5tiet74or.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/3wek1vam2lue7zb6lzccqtu4p.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/4so3wf1c1898w6k2bx03rimu4.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/4vfnb87x08nkzft65vlzt40ah.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/53ephveh6utfzftg6xvfu36i7.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/5bnnq8t0brxy4g0vwy8ftq9zn.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/5d310vw4ukn92mhc3z13m7od6.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/5k9kl5ve7t6jn3o863hsagjpz.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/60s9jhvx1f5dma1z2zyfu1utb.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/75zqkrvux5f9rg0t5pf6w7n8x.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/7kmjfayotdj7iaius9n50i20o.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/8k7jl31g9iyglzrxgnimqdh4p.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/arffdnvh46rpwcr5lxuihba28.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/b5wwolf4z34erup2lg9yuh9am.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/cmi5tjhdwcj6ylaawswiujpgm.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/cx6h684dlw2fl6mx8wwjhd1sc.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/dep-graph.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/eqa2vmgs1jsqnwur41ey7f6xo.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/eqy2ufx68f25e1c66o36vie3d.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/f204on1o0ms5p6s3zwtv3up27.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/f51ak5dsxi4srfr3xno7o5r4c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/query-cache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q-7ly03dicwvutv50soyea2nhma/work-products.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mockup-Moodle/target/debug/incremental/Mockup_Moodle-1b6hbo60by3ux/s-h0lk1ycbge-0esub3q.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sheet3/target/.rustc_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Sheet3/target/.rustc_info.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="erxyo1q5" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2on7AOpJyFufOqJgW1wm4eOeDXI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Cargo.Run.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.rust.reset.selective.auto.import": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/andri/Desktop/Rust-Exercise",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
+    "org.rust.first.attach.projects": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="command" value="run --package midterm_2_2022-11-22-v1 --bin midterm_2_2022-11-22-v1" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="command" value="run" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a953a9f-a73d-48ad-a865-a13a6e8853ac" name="Changes" comment="" />
+      <created>1731493341880</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731493341880</updated>
+      <workItem from="1731493343538" duration="4324000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
