@@ -1,1 +1,1 @@
-C:\Users\andri\Desktop\Rust-Exercise\Mockup\target\debug\Mockup.exe: C:\Users\andri\Desktop\Rust-Exercise\Mockup\src\main.rs
+C:\Users\Carzeri\Desktop\Rust-Exercise\Mockup\target\debug\Mockup.exe: C:\Users\Carzeri\Desktop\Rust-Exercise\Mockup\src\main.rs
